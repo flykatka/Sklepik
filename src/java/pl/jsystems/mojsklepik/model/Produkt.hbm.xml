@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.org/dtd//hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+ <class name="pl.jsystems.mojsklepik.model.Produkt" table="produkty">
+        
+        <id name="idProduktu" type="long" column="id_produktu">
+            <generator class="increment">
+            </generator>
+        </id>
+        <property name="nazwaProduktu" type="string" column="nazwa_produktu"/>
+        <property name="cenaNetto" type="double" column="cena_netto"/>
+        <property name="stanMagazynowy" type="long" column="stan_magazynowy"/>
+        <property name="producent" type="string" column="producent"/>
+        
+        <many-to-one name="kategoria" class="pl.jsystems.mojsklepik.model.Kategoria"
+        column="id_kategorii" cascade="none" not-null="false" lazy="false"/>
+        
+    </class>
+
+</hibernate-mapping>
